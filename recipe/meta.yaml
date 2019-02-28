@@ -9,7 +9,7 @@ source:
   sha256: ad5d0e8db09bf65580563632f5a73403790672f8ab33bc943da344fe70d290a0
 
 build:
-  number: 0
+  number: 1
   script:
     # this is split in two to workaround an opaque msvc error
     - {{ PYTHON }} setup.py bdist_wheel  # [win]
@@ -46,6 +46,8 @@ requirements:
     - docopt
     - Qt.py
     - packaging
+    - mpi4py
+    - jupyter
 
 test:
   requires:
