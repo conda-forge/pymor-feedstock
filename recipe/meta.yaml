@@ -1,4 +1,4 @@
-{% set version = "0.5.1" %}
+{% set version = "0.5.2" %}
 
 package:
     name: pymor
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pymor/pymor-{{ version }}.tar.gz
-  sha256: ad5d0e8db09bf65580563632f5a73403790672f8ab33bc943da344fe70d290a0
+  sha256: afd21b96682383f40b6707a9a7b5ba2649a8c128300863cbac8dbdef81790271
 
 build:
-  number: 3
+  number: 0
   script:
     # this is split in two to workaround an opaque msvc error
     - {{ PYTHON }} setup.py bdist_wheel  # [win]
