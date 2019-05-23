@@ -46,14 +46,14 @@ requirements:
     - docopt
     - Qt.py
     - packaging
-    - {{ mpi }}  # [mpi != 'nompi']
-    - mpi4py  # [mpi != 'nompi']
+    - mpi4py
     - jupyter
 
 test:
   requires:
     - pytest >=3.3
     - packaging
+    - mpich
 
   commands:
     - xvfb-run -a py.test -s -r sxX -k thermalblock --pyargs pymortests -o testpaths=pymortests/ -o python_files="pymortests/demos.py"  # [linux]
