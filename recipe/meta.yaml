@@ -40,20 +40,22 @@ requirements:
     - pyopengl
     - pyamg  # [not win]
     - pyqt
+    # this should really be a dependcy of pyqt, but isn't
+    - xorg-libxi # [linux]
     - pillow
     - {{ pin_compatible('numpy') }}
     - scipy >=0.13.3
     - docopt
     - Qt.py
     - packaging
-    - mpi4py
+    - mpi4py # [not win]
     - jupyter
 
 test:
   requires:
     - pytest >=3.3
     - packaging
-    - mpich
+    - mpi # [not win]
 
   commands:
     - QT_DEBUG_PLUGINS=1 xvfb-run -a py.test -s -r sxX -k thermalblock --pyargs pymortests -o testpaths=pymortests/ -o python_files="pymortests/demos.py"  # [linux]
