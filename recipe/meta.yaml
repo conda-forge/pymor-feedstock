@@ -55,7 +55,7 @@ test:
   requires:
     - pytest >=3.3
     - packaging
-    - mpi  # [not win]
+    - mpich  # [not win]
 
   commands:
     - QT_DEBUG_PLUGINS=1 xvfb-run -a py.test -s -r sxX -k thermalblock --pyargs pymortests -o testpaths=pymortests/ -o python_files="pymortests/demos.py"  # [linux]
