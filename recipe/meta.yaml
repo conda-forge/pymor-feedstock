@@ -46,7 +46,8 @@ requirements:
     - docopt
     - Qt.py
     - packaging
-    - mpi4py
+    - {{ mpi }}  # [mpi != 'nompi']
+    - mpi4py  # [mpi != 'nompi']
     - jupyter
 
 test:
