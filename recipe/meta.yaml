@@ -9,7 +9,7 @@ source:
   sha256: edfb41542b931e6d401d9400b60d1219a94c233b57a37b029c250674bb039739
 
 build:
-  number: 0
+  number: 1
   script:
     # this is split in two to workaround an opaque msvc error
     - {{ PYTHON }} setup.py bdist_wheel  # [win]
@@ -36,7 +36,7 @@ requirements:
     - python
     - ipython >=3.0
     - ipyparallel
-    - matplotlib
+    - matplotlib-base
     - pyopengl
     - diskcache
     - pyamg  # [not win]
