@@ -9,7 +9,7 @@ source:
   sha256: edfb41542b931e6d401d9400b60d1219a94c233b57a37b029c250674bb039739
 
 build:
-  number: 1
+  number: 2
   script:
     # this is split in two to workaround an opaque msvc error
     - {{ PYTHON }} setup.py bdist_wheel  # [win]
@@ -27,7 +27,7 @@ requirements:
     - python
     - pip
     - cython >=0.20.1
-    - numpy
+    - numpy >=1.17.5
     - packaging
     - pytest-runner
     - wheel  # [win]
@@ -35,26 +35,27 @@ requirements:
   run:
     - python
     - ipython >=3.0
-    - ipyparallel
+    - ipyparallel >=6.2.5
     - matplotlib-base
     - pyopengl
     - diskcache
+    - sympy
     - pyamg  # [not win]
-    - pyqt ==5.9.2  
+    - pyside2 >=5.13
     # this should really be a dependcy of pyqt, but isn't
     - xorg-libxi  # [linux]
     - pillow
     - {{ pin_compatible('numpy') }}
     - scipy >=0.13.3
     - docopt
-    - Qt.py
+    - Qt.py >=1.2.4
     - packaging
     - mpi4py  # [not win]
     - jupyter
 
 test:
   requires:
-    - pytest >=3.3
+    - pytest >=4.4
     - packaging
     - mpich  # [not win]
 
