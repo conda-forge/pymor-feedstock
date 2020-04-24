@@ -27,7 +27,7 @@ requirements:
     - python
     - pip
     - cython >=0.20.1
-    - numpy
+    - numpy >=1.17.5
     - packaging
     - pytest-runner
     - wheel  # [win]
@@ -38,10 +38,11 @@ requirements:
     - pythreejs
     - ipywidgets
     - ipython >=3.0
-    - ipyparallel
+    - ipyparallel >=6.2.5
     - matplotlib-base
     - pyopengl
     - diskcache
+    - sympy
     - pyamg  # [not win]
     - pyqt ==5.12.3
     # these should really be a dependcy of pyqt, but isn't
@@ -51,7 +52,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - scipy >=0.13.3
     - docopt
-    - Qt.py
+    - Qt.py >=1.2.4
     - packaging
     - mpi4py  # [not win]
     - jupyter
