@@ -54,7 +54,8 @@ requirements:
 
 test:
   requires:
-    - pytest >=3.3
+    - pytest >=4.6
+    - hypothesis
     - packaging
     - mpich  # [not win]
 
