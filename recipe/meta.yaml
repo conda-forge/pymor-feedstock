@@ -1,15 +1,15 @@
-{% set version = "2019.2.0" %}
+{% set version = "2020.1.1" %}
 
 package:
-    name: pymor
-    version: {{ version }}
+  name: pymor
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/p/pymor/pymor-{{ version }}.tar.gz
-  sha256: edfb41542b931e6d401d9400b60d1219a94c233b57a37b029c250674bb039739
+  sha256: d4b72fd3bc793fb438cfd379941fb36982740942ec70c8db1e2a5e10f6423beb
 
 build:
-  number: 1
+  number: 0
   script:
     # this is split in two to workaround an opaque msvc error
     - {{ PYTHON }} setup.py bdist_wheel  # [win]
@@ -40,7 +40,7 @@ requirements:
     - pyopengl
     - diskcache
     - pyamg  # [not win]
-    - pyqt ==5.9.2  
+    - pyqt ==5.9.2
     # this should really be a dependcy of pyqt, but isn't
     - xorg-libxi  # [linux]
     - pillow
@@ -54,7 +54,8 @@ requirements:
 
 test:
   requires:
-    - pytest >=3.3
+    - pytest >=4.6
+    - hypothesis
     - packaging
     - mpich  # [not win]
 
@@ -69,9 +70,10 @@ test:
 
 about:
   home: https://pymor.org
-  license: BSD 2-clause
+  license: BSD-2-Clause
   license_file: LICENSE.txt
-  summary: pyMOR is a software library for building model order reduction applications with the Python programming language. Implemented algorithms include reduced basis methods for parametric linear and non-linear problems, as well as system-theoretic methods such as balanced truncation or IRKA. All algorithms in pyMOR are formulated in terms of abstract interfaces for seamless integration with external PDE solver packages. Moreover, pure Python implementations of finite element and finite volume discretizations using the NumPy/SciPy scientific computing stack are provided for getting started quickly.
+  summary: pyMOR is a software library for building model order reduction applications with the Python programming language. Implemented algorithms include reduced basis methods for parametric linear and non-linear problems, as well as system-theoretic methods such as balanced truncation or IRKA. All algorithms in pyMOR
+    are formulated in terms of abstract interfaces for seamless integration with external PDE solver packages. Moreover, pure Python implementations of finite element and finite volume discretizations using the NumPy/SciPy scientific computing stack are provided for getting started quickly.
 
 extra:
   recipe-maintainers:
