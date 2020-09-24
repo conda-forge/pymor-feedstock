@@ -40,7 +40,7 @@ requirements:
     - pyopengl
     - diskcache
     - pyamg  # [not win]
-    - pyqt ==5.9.2
+    - pyqt ==5.12.3
     # this should really be a dependcy of pyqt, but isn't
     - xorg-libxi  # [linux]
     - pillow
