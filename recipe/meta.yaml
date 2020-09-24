@@ -41,8 +41,9 @@ requirements:
     - diskcache
     - pyamg  # [not win]
     - pyqt ==5.12.3
-    # this should really be a dependcy of pyqt, but isn't
+    # these should really be a dependcy of pyqt, but isn't
     - xorg-libxi  # [linux]
+    - xorg-libxrender  # [linux]
     - pillow
     - {{ pin_compatible('numpy') }}
     - scipy >=0.13.3
