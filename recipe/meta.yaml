@@ -9,7 +9,7 @@ source:
   sha256: afeae05bb77a4e75235745bb5597f48f976d9ef1ad3d091beaa722c596bf6af3
 
 build:
-  number: 0
+  number: 1
   script:
     # this is split in two to workaround an opaque msvc error
     - {{ PYTHON }} setup.py bdist_wheel  # [win]
