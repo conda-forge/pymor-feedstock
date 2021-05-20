@@ -45,7 +45,7 @@ requirements:
     - diskcache
     - sympy
     - pyamg  # [not win]
-    - pyqt ==5.12.3
+    - pyqt
     # these should really be a dependcy of pyqt, but isn't
     - xorg-libxi  # [linux]
     - xorg-libxrender  # [linux]
@@ -57,7 +57,6 @@ requirements:
     - qtpy
     - packaging
     - mpi4py  # [not win]
-    - jupyter
     - pytorch
     - slycot
     - {{ pin_compatible('pytorch-gpu') }}  # [cuda_compiler_version not in (undefined, 'None')]
