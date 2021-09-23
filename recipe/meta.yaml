@@ -9,28 +9,20 @@ source:
   sha256: 324fb18d24a6b397536854a761dccd8b7d65c30a8b7b4d3b577f9d75c14b58af
 
 build:
-  number: 0
+  number: 1
   script:
-    # this is split in two to workaround an opaque msvc error
-    - {{ PYTHON }} setup.py bdist_wheel  # [win]
-    # it's really just one file, but windows shell cannot expand glob patterns
-    - FOR /R %%G in (pymor*.whl) DO {{ PYTHON }} -m pip install %%G --no-deps --ignore-installed -vvv  # [win]
-    # on linux + osx we can do the standard install
-    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv  # [not win]
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
   skip: true  # [py<35]
 
 requirements:
-  build:
-    - {{ compiler('c') }}
 
   host:
     - python
     - pip
-    - cython >=0.20.1
     - numpy
     - packaging
     - pytest-runner
-    - wheel  # [win]
+    - wheel
 
   run:
     - python
@@ -42,7 +34,6 @@ requirements:
     - matplotlib-base
     - pyopengl
     - diskcache
-    - pyamg  # [not win]
     - pyqt ==5.12.3
     # these should really be a dependcy of pyqt, but isn't
     - xorg-libxi  # [linux]
@@ -55,6 +46,7 @@ requirements:
     - packaging
     - mpi4py  # [not win]
     - jupyter
+    - pyvista
 
 test:
   requires:
