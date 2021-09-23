@@ -9,10 +9,10 @@ source:
   sha256: 324fb18d24a6b397536854a761dccd8b7d65c30a8b7b4d3b577f9d75c14b58af
 
 build:
-  number: 1
+  number: 0
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
-  skip: true  # [py<35]
+  skip: true  # [py<37]
 
 requirements:
 
@@ -54,11 +54,6 @@ test:
     - hypothesis
     - packaging
     - mpich  # [not win]
-
-  commands:
-    - QT_DEBUG_PLUGINS=1 xvfb-run -a py.test -s -r sxX -k thermalblock --pyargs pymortests -o testpaths=pymortests/ -o python_files="pymortests/demos.py"  # [linux]
-    # use something that does not need shaders
-    - py.test -v -s -r sxX -k thermalblock_adaptive --pyargs pymortests -o testpaths=pymortests/ -o python_files="pymortests/demos.py"  # [not linux]
 
   imports:
     - pymor
