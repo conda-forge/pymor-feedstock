@@ -1,4 +1,4 @@
-{% set version = "2020.2.0" %}
+{% set version = "2021.1.0" %}
 
 package:
   name: pymor
@@ -6,35 +6,27 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pymor/pymor-{{ version }}.tar.gz
-  sha256: e451cb0116137f2409f3d58f63b06d1b568040f3c48f3922bec9d548bc4982ee
+  sha256: b7a7e8b5e8d3589775180f24b8527e74fd50dc6a9138714d9f322cba90a6999d
 
 build:
   number: 0
   script:
-    # this is split in two to workaround an opaque msvc error
-    - {{ PYTHON }} setup.py bdist_wheel  # [win]
-    # it's really just one file, but windows shell cannot expand glob patterns
-    - FOR /R %%G in (pymor*.whl) DO {{ PYTHON }} -m pip install %%G --no-deps --ignore-installed -vvv  # [win]
-    # on linux + osx we can do the standard install
-    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv  # [not win]
-  skip: true  # [py<35]
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
+  skip: true  # [py<37]
 
 requirements:
-  build:
-    - {{ compiler('c') }}
 
   host:
     - python
     - pip
-    - cython >=0.20.1
     - numpy
     - packaging
     - pytest-runner
-    - wheel  # [win]
+    - wheel
 
   run:
     - python
-    - typer 
+    - typer
     - pythreejs
     - ipywidgets
     - ipython >=3.0
@@ -42,7 +34,6 @@ requirements:
     - matplotlib-base
     - pyopengl
     - diskcache
-    - pyamg  # [not win]
     - pyqt ==5.12.3
     # these should really be a dependcy of pyqt, but isn't
     - xorg-libxi  # [linux]
@@ -55,6 +46,7 @@ requirements:
     - packaging
     - mpi4py  # [not win]
     - jupyter
+    - pyvista
 
 test:
   requires:
@@ -62,11 +54,6 @@ test:
     - hypothesis
     - packaging
     - mpich  # [not win]
-
-  commands:
-    - QT_DEBUG_PLUGINS=1 xvfb-run -a py.test -s -r sxX -k thermalblock --pyargs pymortests -o testpaths=pymortests/ -o python_files="pymortests/demos.py"  # [linux]
-    # use something that does not need shaders
-    - py.test -v -s -r sxX -k thermalblock_adaptive --pyargs pymortests -o testpaths=pymortests/ -o python_files="pymortests/demos.py"  # [not linux]
 
   imports:
     - pymor
