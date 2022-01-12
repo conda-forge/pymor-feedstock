@@ -42,7 +42,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - scipy >=0.13.3
     - docopt
-    - Qt.py
+    - qtpy !=2.0.0
     - packaging
     - mpi4py  # [not win]
     - jupyter
