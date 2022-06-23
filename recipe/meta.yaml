@@ -13,12 +13,11 @@ build:
   noarch: python
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
-  skip: true  # [py<37]
 
 requirements:
 
   host:
-    - python
+    - python >=3.7
     - pip
     - numpy
     - packaging
@@ -26,7 +25,7 @@ requirements:
     - wheel
 
   run:
-    - python
+    - python >=3.7
     - typer
     - pythreejs
     - ipywidgets
