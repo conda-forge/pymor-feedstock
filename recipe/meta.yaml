@@ -9,15 +9,18 @@ source:
   sha256: dc844d24bfba37ca1a010e4dd4eee06e87f896c1850c2821017ab1c9b8eac90e
 
 build:
-  number: 0
+  number: 1
+  noarch: python
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
-  skip: true  # [py<37]
+  entry_points:
+    - "pymor-demo = pymor.scripts.pymor_demo:run"
+    - "pymor-vis = pymor.scripts.pymor_vis:run"
 
 requirements:
 
   host:
-    - python
+    - python >=3.7
     - pip
     - numpy
     - packaging
@@ -25,7 +28,7 @@ requirements:
     - wheel
 
   run:
-    - python
+    - python >=3.7
     - typer
     - pythreejs
     - ipywidgets
@@ -35,16 +38,12 @@ requirements:
     - pyopengl
     - diskcache
     - pyqt ==5.12.3
-    # these should really be a dependcy of pyqt, but isn't
-    - xorg-libxi  # [linux]
-    - xorg-libxrender  # [linux]
     - pillow
     - {{ pin_compatible('numpy') }}
     - scipy >=0.13.3
     - docopt
     - qtpy !=2.0.0
     - packaging
-    - mpi4py  # [not win]
     - jupyter
     - pyvista
 
@@ -53,7 +52,6 @@ test:
     - pytest >=4.6
     - hypothesis
     - packaging
-    - mpich  # [not win]
 
   imports:
     - pymor
