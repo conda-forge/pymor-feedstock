@@ -13,6 +13,9 @@ build:
   noarch: python
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
+  entry_points:
+    - "pymor-demo = pymor.scripts.pymor_demo:run"
+    - "pymor-vis = pymor.scripts.pymor_vis:run"
 
 requirements:
 
