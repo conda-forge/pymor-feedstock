@@ -1,4 +1,4 @@
-{% set version = "2021.2.1" %}
+{% set version = "2022.1.0" %}
 
 package:
   name: pymor
@@ -6,16 +6,16 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pymor/pymor-{{ version }}.tar.gz
-  sha256: dc844d24bfba37ca1a010e4dd4eee06e87f896c1850c2821017ab1c9b8eac90e
+  sha256: db86adbbf74fd6f481991887ee0c141544b66c84655504e9587ebaa1a44e387f
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
   entry_points:
-    - "pymor-demo = pymor.scripts.pymor_demo:run"
-    - "pymor-vis = pymor.scripts.pymor_vis:run"
+    - pymor-demo = pymor.scripts.pymor_demo:run
+    - pymor-vis = pymor.scripts.pymor_vis:run
 
 requirements:
 
