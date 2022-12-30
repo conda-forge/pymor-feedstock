@@ -1,4 +1,4 @@
-{% set version = "2022.1.1" %}
+{% set version = "2022.2.0" %}
 
 package:
   name: pymor
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pymor/pymor-{{ version }}.tar.gz
-  sha256: 9ddf74f3c2f76642262794c4ea21d15a690e957d99190f4c9a4f688e86880857
+  sha256: bb851e356d87b0b6b2f50acdb94f0d42c5df712fa7fcc3114154f299dae55c34
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
