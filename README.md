@@ -1,11 +1,11 @@
-About pymor
-===========
+About pymor-feedstock
+=====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pymor-feedstock/blob/main/LICENSE.txt)
 
 Home: https://pymor.org
 
 Package license: BSD-2-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pymor-feedstock/blob/main/LICENSE.txt)
 
 Summary: pyMOR is a software library for building model order reduction applications with the Python programming language. Implemented algorithms include reduced basis methods for parametric linear and non-linear problems, as well as system-theoretic methods such as balanced truncation or IRKA. All algorithms in pyMOR are formulated in terms of abstract interfaces for seamless integration with external PDE solver packages. Moreover, pure Python implementations of finite element and finite volume discretizations using the NumPy/SciPy scientific computing stack are provided for getting started quickly.
 
