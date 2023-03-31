@@ -20,7 +20,7 @@ build:
 requirements:
 
   host:
-    - python >=3.7
+    - python >=3.8
     - pip
     - numpy
     - packaging
@@ -28,24 +28,12 @@ requirements:
     - wheel
 
   run:
-    - python >=3.7
+    - python >=3.8
     - typer
-    - pythreejs
-    - ipywidgets
-    - ipython >=3.0
-    - ipyparallel
-    - matplotlib-base
-    - pyopengl
     - diskcache
-    - pyqt ==5.12.3
-    - pillow
     - {{ pin_compatible('numpy') }}
-    - scipy >=0.13.3
-    - docopt
-    - qtpy !=2.0.0
+    - {{ pin_compatible('scipy') }}
     - packaging
-    - jupyter
-    - pyvista
 
 test:
   requires:
