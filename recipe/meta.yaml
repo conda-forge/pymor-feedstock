@@ -30,7 +30,7 @@ requirements:
   run:
     - python >=3.8
     - diskcache
-    - matplotlib
+    - matplotlib-base
     - packaging
     - pillow
     - pygments
