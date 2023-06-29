@@ -29,17 +29,24 @@ requirements:
 
   run:
     - python >=3.8
-    - typer
     - diskcache
+    - matplotlib
+    - packaging
+    - pillow
+    - pygments
+    - qtpy >2.0
+    - typer
     - {{ pin_compatible('numpy') }}
     - {{ pin_compatible('scipy') }}
-    - packaging
 
 test:
   requires:
-    - pytest >=4.6
-    - hypothesis
+    - hypothesis[numpy,pytest] ==6.56.3
     - packaging
+    - pytest >=7.2.1
+    - pytest-cov
+    - pytest-datadir
+    - pytest-notebook
 
   imports:
     - pymor
