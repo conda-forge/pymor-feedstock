@@ -9,7 +9,7 @@ source:
   sha256: 538c84d2baf67a6473fb21f1afe7a387cc0c17e9ccb25b8fe83d6ef233b7d697
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
@@ -20,7 +20,7 @@ build:
 requirements:
 
   host:
-    - python >=3.7
+    - python >=3.8
     - pip
     - numpy
     - packaging
@@ -28,30 +28,25 @@ requirements:
     - wheel
 
   run:
-    - python >=3.7
-    - typer
-    - pythreejs
-    - ipywidgets
-    - ipython >=3.0
-    - ipyparallel
-    - matplotlib-base
-    - pyopengl
+    - python >=3.8
     - diskcache
-    - pyqt ==5.12.3
-    - pillow
-    - {{ pin_compatible('numpy') }}
-    - scipy >=0.13.3
-    - docopt
-    - qtpy !=2.0.0
+    - matplotlib-base
     - packaging
-    - jupyter
-    - pyvista
+    - pillow
+    - pygments
+    - qtpy >2.0
+    - typer
+    - {{ pin_compatible('numpy') }}
+    - {{ pin_compatible('scipy') }}
 
 test:
   requires:
-    - pytest >=4.6
-    - hypothesis
+    - hypothesis[numpy,pytest] ==6.56.3
     - packaging
+    - pytest >=7.2.1
+    - pytest-cov
+    - pytest-datadir
+    - pytest-notebook
 
   imports:
     - pymor
@@ -61,11 +56,16 @@ about:
   home: https://pymor.org
   license: BSD-2-Clause
   license_file: LICENSE.txt
-  summary: pyMOR is a software library for building model order reduction applications with the Python programming language. Implemented algorithms include reduced basis methods for parametric linear and non-linear problems, as well as system-theoretic methods such as balanced truncation or IRKA. All algorithms in pyMOR
-    are formulated in terms of abstract interfaces for seamless integration with external PDE solver packages. Moreover, pure Python implementations of finite element and finite volume discretizations using the NumPy/SciPy scientific computing stack are provided for getting started quickly.
+  summary: >
+    pyMOR is a software library for building model order reduction applications
+    with the Python programming language. All algorithms in pyMOR are formulated
+    in terms of abstract interfaces, allowing generic implementations to work
+    with different backends, from NumPy/SciPy to external partial differential
+    equation solver packages.
 
 extra:
   recipe-maintainers:
+    - HenKlei
     - lbalicki
     - pmli
     - sdrave
