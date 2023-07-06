@@ -26,6 +26,7 @@ requirements:
     - packaging
     - pytest-runner
     - wheel
+    - hatchling
 
   run:
     - python >=3.8
