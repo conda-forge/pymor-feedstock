@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pymor/pymor-{{ version }}.tar.gz
-  sha256: 538c84d2baf67a6473fb21f1afe7a387cc0c17e9ccb25b8fe83d6ef233b7d697
+  sha256: 46fefd7a8a3c1810339f57a95f9958782d7967e2a27decb9487e533eb40d54ea
 
 build:
   number: 0
