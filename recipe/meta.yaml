@@ -1,4 +1,4 @@
-{% set version = "2023.2.0" %}
+{% set version = "2024.1.0" %}
 
 package:
   name: pymor
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pymor/pymor-{{ version }}.tar.gz
-  sha256: ff679e74a99530b9e24dd2afb16cece8bc86638159e9d70eff22447832b63629
+  sha256: 4f0e77b1467f0576680d580ee30ca0ce6792066bfcede9812fea9f910278b969
 
 build:
   number: 0
