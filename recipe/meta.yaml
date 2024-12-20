@@ -1,4 +1,5 @@
 {% set version = "2024.2.0" %}
+{% set python_min = "3.9" %}
 
 package:
   name: pymor
@@ -20,7 +21,7 @@ build:
 requirements:
 
   host:
-    - python >=3.8
+    - python >={{ python_min }}
     - pip
     - numpy
     - packaging
@@ -29,7 +30,7 @@ requirements:
     - hatchling
 
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - diskcache
     - matplotlib-base
     - packaging
