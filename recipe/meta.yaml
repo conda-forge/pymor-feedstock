@@ -1,12 +1,13 @@
+{% set name = "pymor" %}
 {% set version = "2024.2.0" %}
 {% set python_min = "3.9" %}
 
 package:
-  name: pymor
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/pymor/pymor-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: c5efdc236649afe2dd63b9e00b938d9a28d8aea62e82a093ff85eedb16e7bcff
 
 build:
@@ -21,7 +22,7 @@ build:
 requirements:
 
   host:
-    - python >={{ python_min }}
+    - python {{ python_min }}
     - pip
     - numpy
     - packaging
@@ -44,6 +45,7 @@ requirements:
 
 test:
   requires:
+    - python {{ python_min }}
     - hypothesis[numpy,pytest] ==6.56.3
     - packaging
     - pytest >=7.2.1
