@@ -60,8 +60,11 @@ about:
   license: BSD-2-Clause
   license_file: LICENSE.txt
   summary: >
-    pyMOR is a software library for building model order reduction applications with the Python programming language. All algorithms in pyMOR are formulated in terms of abstract interfaces, allowing generic implementations to work with different backends, from NumPy/SciPy to external partial differential equation solver
-    packages.
+    pyMOR is a software library for building model order reduction applications
+    with the Python programming language. All algorithms in pyMOR are
+    formulated in terms of abstract interfaces, allowing generic
+    implementations to work with different backends, from NumPy/SciPy to
+    external partial differential equation solver packages.
 
 extra:
   recipe-maintainers:
