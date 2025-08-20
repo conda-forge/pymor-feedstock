@@ -33,13 +33,14 @@ requirements:
     - python >={{ python_min }}
     - diskcache
     - matplotlib-base
+    - numpy >=1.20.3,!=1.25.0
     - packaging
     - pillow
     - pygments
-    - qtpy >2.0
+    - qtpy >=2.3.1
+    - scipy >=1.8
+    - threadpoolctl
     - typer
-    - {{ pin_compatible('numpy') }}
-    - {{ pin_compatible('scipy') }}
 
 test:
   requires:
