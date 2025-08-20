@@ -1,16 +1,17 @@
+{% set name = "pymor" %}
 {% set version = "2024.2.0" %}
 {% set python_min = "3.9" %}
 
 package:
-  name: pymor
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/pymor/pymor-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: c5efdc236649afe2dd63b9e00b938d9a28d8aea62e82a093ff85eedb16e7bcff
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
@@ -21,7 +22,7 @@ build:
 requirements:
 
   host:
-    - python >={{ python_min }}
+    - python {{ python_min }}
     - pip
     - numpy
     - packaging
@@ -33,16 +34,18 @@ requirements:
     - python >={{ python_min }}
     - diskcache
     - matplotlib-base
+    - numpy >=1.20.3,!=1.25.0
     - packaging
     - pillow
     - pygments
-    - qtpy >2.0
+    - qtpy >=2.3.1
+    - scipy >=1.8
+    - threadpoolctl
     - typer
-    - {{ pin_compatible('numpy') }}
-    - {{ pin_compatible('scipy') }}
 
 test:
   requires:
+    - python {{ python_min }}
     - hypothesis[numpy,pytest] ==6.56.3
     - packaging
     - pytest >=7.2.1
@@ -59,8 +62,11 @@ about:
   license: BSD-2-Clause
   license_file: LICENSE.txt
   summary: >
-    pyMOR is a software library for building model order reduction applications with the Python programming language. All algorithms in pyMOR are formulated in terms of abstract interfaces, allowing generic implementations to work with different backends, from NumPy/SciPy to external partial differential equation solver
-    packages.
+    pyMOR is a software library for building model order reduction applications
+    with the Python programming language. All algorithms in pyMOR are
+    formulated in terms of abstract interfaces, allowing generic
+    implementations to work with different backends, from NumPy/SciPy to
+    external partial differential equation solver packages.
 
 extra:
   recipe-maintainers:
