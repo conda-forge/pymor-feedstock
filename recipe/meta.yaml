@@ -1,5 +1,5 @@
 {% set name = "pymor" %}
-{% set version = "2024.2.0" %}
+{% set version = "2025.1.1" %}
 {% set python_min = "3.9" %}
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c5efdc236649afe2dd63b9e00b938d9a28d8aea62e82a093ff85eedb16e7bcff
+  sha256: 916894f612ee016979148592a9507523b36a7531688e2e4409e09a196c770549
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
@@ -39,7 +39,7 @@ requirements:
     - pillow
     - pygments
     - qtpy >=2.3.1
-    - scipy >=1.8
+    - scipy >=1.8,!=1.15.0,!=1.15.1,!=1.15.2
     - threadpoolctl
     - typer
 
