@@ -1,6 +1,6 @@
 {% set name = "pymor" %}
-{% set version = "2025.1.2" %}
-{% set python_min = "3.9" %}
+{% set version = "2025.2.0" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name }}
