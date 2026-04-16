@@ -1,5 +1,5 @@
 {% set name = "pymor" %}
-{% set version = "2025.2.0" %}
+{% set version = "2025.2.1" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c6ddfb6508574fbd2bc0849b27f42e1a9ec0c7c70baa1031422045f1f56daac5
+  sha256: 3da510c2c8d2a06bd880764f9185125ffcc20d852c5937edc1678ca123c2a0f8
 
 build:
   number: 0
