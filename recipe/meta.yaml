@@ -1,5 +1,5 @@
 {% set name = "pymor" %}
-{% set version = "2025.2.2" %}
+{% set version = "2026.1.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 48d6e556675eb867ff2465a97eddbd7d5b204e05aae5a6a5c0711d2abc01a421
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: bd28df82424763543e12a80000a855b7203cc2ab67f71a217973496317abfdaa
 
 build:
   number: 0
@@ -62,11 +62,8 @@ about:
   license: BSD-2-Clause
   license_file: LICENSE.txt
   summary: >
-    pyMOR is a software library for building model order reduction applications
-    with the Python programming language. All algorithms in pyMOR are
-    formulated in terms of abstract interfaces, allowing generic
-    implementations to work with different backends, from NumPy/SciPy to
-    external partial differential equation solver packages.
+    pyMOR is a software library for building model order reduction applications with the Python programming language. All algorithms in pyMOR are formulated in terms of abstract interfaces, allowing generic implementations to work with different backends, from NumPy/SciPy to external partial differential equation solver
+    packages.
 
 extra:
   recipe-maintainers:
