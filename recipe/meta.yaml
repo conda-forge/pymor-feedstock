@@ -11,7 +11,7 @@ source:
   sha256: bd28df82424763543e12a80000a855b7203cc2ab67f71a217973496317abfdaa
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
@@ -32,6 +32,7 @@ requirements:
 
   run:
     - python >={{ python_min }}
+    - cyclopts
     - diskcache
     - matplotlib-base
     - numpy >=1.20.3,!=1.25.0
@@ -41,7 +42,6 @@ requirements:
     - qtpy >=2.3.1
     - scipy >=1.8,!=1.15.0,!=1.15.1,!=1.15.2
     - threadpoolctl
-    - typer
 
 test:
   requires:
