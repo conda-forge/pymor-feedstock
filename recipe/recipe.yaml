@@ -104,6 +104,8 @@ outputs:
           imports:
             - pymor
             - pymordemos
+          # k3d depends on deepcomparer, which is not packaged in conda-forge
+          pip_check: false
 
 about:
   homepage: https://pymor.org
