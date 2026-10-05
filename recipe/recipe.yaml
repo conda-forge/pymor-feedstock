@@ -44,7 +44,7 @@ tests:
         - pymordemos
 
 about:
-  home: https://pymor.org
+  homepage: https://pymor.org
   license: "BSD-2-Clause AND BSD-3-Clause"
   license_file: LICENSE.txt
   summary: "Library for building model order reduction applications with Python"
