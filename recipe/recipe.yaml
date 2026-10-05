@@ -1,40 +1,33 @@
-{% set name = "pymor" %}
-{% set version = "2026.1.1" %}
-{% set python_min = "3.10" %}
+context:
+  version: "2026.1.1"
+  python_min: "3.10"
 
 package:
-  name: {{ name }}
-  version: {{ version }}
+  name: pymor
+  version: ${{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/p/pymor/pymor-${{ version }}.tar.gz
   sha256: 3c13192c1453b1db1797cc67ef9938042dca48e2bcae6c828c36e925c55b0da7
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script:
-    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
+  script: "${{ PYTHON }} -m pip install . -vv"
   entry_points:
     - pymor-demo = pymor.scripts.pymor_demo:run
     - pymor-vis = pymor.scripts.pymor_vis:run
 
 requirements:
-
   host:
-    - python {{ python_min }}
+    - python >=${{ python_min }}
     - pip
-    - numpy
-    - packaging
-    - pytest-runner
-    - wheel
     - hatchling
 
   run:
-    - python >={{ python_min }}
     - cyclopts
     - diskcache
-    - matplotlib-base
+    - matplotlib-base >=3.5.0
     - numpy >=1.20.3,!=1.25.0
     - packaging
     - pillow
@@ -43,25 +36,18 @@ requirements:
     - scipy >=1.8,!=1.15.0,!=1.15.1,!=1.15.2
     - threadpoolctl
 
-test:
-  requires:
-    - python {{ python_min }}
-    - hypothesis[numpy,pytest] ==6.56.3
-    - packaging
-    - pytest >=7.2.1
-    - pytest-cov
-    - pytest-datadir
-    - pytest-notebook
-
-  imports:
-    - pymor
-    - pymordemos
+tests:
+  - python:
+      imports:
+        - pymor
+        - pymordemos
 
 about:
   home: https://pymor.org
-  license: BSD-2-Clause
+  license: "BSD-2-Clause AND BSD-3-Clause"
   license_file: LICENSE.txt
-  summary: >
+  summary: "Library for building model order reduction applications with Python"
+  description: >
     pyMOR is a software library for building model order reduction applications with the Python programming language. All algorithms in pyMOR are formulated in terms of abstract interfaces, allowing generic implementations to work with different backends, from NumPy/SciPy to external partial differential equation solver
     packages.
 

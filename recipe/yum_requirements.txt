@@ -1,4 +1,0 @@
-mesa-libGL-devel
-xorg-x11-server-Xvfb
-dejavu-sans-mono-fonts
-xorg-x11-server-Xorg
