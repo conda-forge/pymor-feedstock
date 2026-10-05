@@ -40,7 +40,7 @@ requirements:
 
 tests:
   - python:
-      python_versions:
+      python_version:
         - ${{ python_min }}.*
         - "*"
       imports:
