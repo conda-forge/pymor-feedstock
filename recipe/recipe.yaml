@@ -1,6 +1,6 @@
 context:
   version: "2026.1.1"
-  python_min: "3.10"
+  # python_min: "3.10"   # 3.10 is older the current conda-forge min
 
 package:
   name: pymor
@@ -40,6 +40,9 @@ requirements:
 
 tests:
   - python:
+      python_versions:
+        - ${{ python_min }}.*
+        - "*"
       imports:
         - pymor
         - pymordemos
