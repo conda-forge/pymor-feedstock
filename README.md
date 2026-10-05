@@ -3,12 +3,13 @@ About pymor-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pymor-feedstock/blob/main/LICENSE.txt)
 
-Home: https://pymor.org
+Home: https://pymor.org/
 
-Package license: BSD-2-Clause
+Package license: BSD-2-Clause AND BSD-3-Clause
 
-Summary: pyMOR is a software library for building model order reduction applications with the Python programming language. All algorithms in pyMOR are formulated in terms of abstract interfaces, allowing generic implementations to work with different backends, from NumPy/SciPy to external partial differential equation solver packages.
+Summary: Library for building model order reduction applications with Python
 
+pyMOR is a software library for building model order reduction applications with the Python programming language. All algorithms in pyMOR are formulated in terms of abstract interfaces, allowing generic implementations to work with different backends, from NumPy/SciPy to external partial differential equation solver packages.
 
 Current build status
 ====================
