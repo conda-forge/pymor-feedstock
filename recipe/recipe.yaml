@@ -16,9 +16,9 @@ build:
   script: "${{ PYTHON }} -m pip install . -vv"
   python:
     entry_points:
-      - pymor-config = pymor.scripts.pymor_config:run
-      - pymor-demo = pymor.scripts.pymor_demo:run
-      - pymor-vis = pymor.scripts.pymor_vis:run
+      - pymor-config = pymor.scripts.pymor_config:app
+      - pymor-demo = pymor.scripts.pymor_demo:app.meta
+      - pymor-vis = pymor.scripts.pymor_vis:app
 
 requirements:
   host:
