@@ -11,7 +11,7 @@ source:
   sha256: 3c13192c1453b1db1797cc67ef9938042dca48e2bcae6c828c36e925c55b0da7
 
 build:
-  number: 2
+  number: 3
   noarch: python
   script: "${{ PYTHON }} -m pip install . -vv"
   python:
@@ -24,14 +24,14 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pip
-    - hatchling
+    - hatchling >=1.27
 
   run:
     - python >=${{ python_min }}
     - cyclopts
     - diskcache
     - matplotlib-base >=3.5.0
-    - numpy >=1.20.3,!=1.25.0
+    - numpy >=1.21,!=1.25.0
     - packaging
     - pillow
     - pygments
