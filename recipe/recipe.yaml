@@ -2,7 +2,7 @@ context:
   version: "2026.1.1"
   # python_min: "3.10"   # 3.10 is older the current conda-forge min
 
-package:
+recipe:
   name: pymor
   version: ${{ version }}
 
@@ -11,42 +11,101 @@ source:
   sha256: 3c13192c1453b1db1797cc67ef9938042dca48e2bcae6c828c36e925c55b0da7
 
 build:
-  number: 3
-  noarch: python
-  script: "${{ PYTHON }} -m pip install . -vv"
-  python:
-    entry_points:
-      - pymor-config = pymor.scripts.pymor_config:app
-      - pymor-demo = pymor.scripts.pymor_demo:app.meta
-      - pymor-vis = pymor.scripts.pymor_vis:app
+  number: 4
 
-requirements:
-  host:
-    - python ${{ python_min }}.*
-    - pip
-    - hatchling >=1.27
+outputs:
+  - package:
+      name: pymor
 
-  run:
-    - python >=${{ python_min }}
-    - cyclopts
-    - diskcache
-    - matplotlib-base >=3.5.0
-    - numpy >=1.21,!=1.25.0
-    - packaging
-    - pillow
-    - pygments
-    - qtpy >=2.3.1
-    - scipy >=1.8,!=1.15.0,!=1.15.1,!=1.15.2
-    - threadpoolctl
+    build:
+      noarch: python
+      script: "${{ PYTHON }} -m pip install . -vv"
+      python:
+        entry_points:
+          - pymor-config = pymor.scripts.pymor_config:app
+          - pymor-demo = pymor.scripts.pymor_demo:app.meta
+          - pymor-vis = pymor.scripts.pymor_vis:app
 
-tests:
-  - python:
-      python_version:
-        - ${{ python_min }}.*
-        - "*"
-      imports:
-        - pymor
-        - pymordemos
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+        - pip
+        - hatchling >=1.27
+
+      run:
+        - python >=${{ python_min }}
+        - cyclopts
+        - diskcache
+        - matplotlib-base >=3.5.0
+        - numpy >=1.21,!=1.25.0
+        - packaging
+        - pillow
+        - pygments
+        - qtpy >=2.3.1
+        - scipy >=1.8,!=1.15.0,!=1.15.1,!=1.15.2
+        - threadpoolctl
+
+    tests:
+      - python:
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
+          imports:
+            - pymor
+            - pymordemos
+
+  - package:
+      name: pymor-full
+
+    build:
+      noarch: generic
+
+    requirements:
+      run:
+        - ${{ pin_subpackage('pymor', exact=True) }}
+
+        # slycot
+        - slycot >=0.5.4
+
+        # ann
+        - pytorch >=1.11.0
+
+        # ipyparallel
+        - ipyparallel >=6.2.5
+
+        # gui
+        - pyqt6
+        - pyopengl
+
+        # jupyter
+        - ipympl
+        - ipywidgets >7
+        - jupyterlab
+        - jupyterlab-myst
+        - k3d >=2.15.2,<3
+        - notebook
+
+        # vtk
+        - lxml
+        - meshio >=4.4
+        - pyevtk
+        - xmljson
+
+        # gmsh
+        - python-gmsh
+
+        # scikit-fem
+        - scikit-fem >=6.0.0
+
+    tests:
+      - python:
+          python_version:
+            - ${{ python_min }}.*
+          imports:
+            - pymor
+            - pymordemos
+          # k3d depends on deepcomparer, which is not packaged in conda-forge
+          pip_check: false
 
 about:
   homepage: https://pymor.org
