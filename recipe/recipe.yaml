@@ -11,7 +11,7 @@ source:
   sha256: 3c13192c1453b1db1797cc67ef9938042dca48e2bcae6c828c36e925c55b0da7
 
 build:
-  number: 4
+  number: 5
 
 outputs:
   - package:
@@ -119,6 +119,6 @@ about:
 extra:
   recipe-maintainers:
     - HenKlei
-    - lbalicki
     - pmli
     - sdrave
+    - ullmannsven
