@@ -31,6 +31,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pymor-green.svg)](https://anaconda.org/conda-forge/pymor) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymor.svg)](https://anaconda.org/conda-forge/pymor) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymor.svg)](https://anaconda.org/conda-forge/pymor) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymor.svg)](https://anaconda.org/conda-forge/pymor) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pymor--full-green.svg)](https://anaconda.org/conda-forge/pymor-full) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymor-full.svg)](https://anaconda.org/conda-forge/pymor-full) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymor-full.svg)](https://anaconda.org/conda-forge/pymor-full) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymor-full.svg)](https://anaconda.org/conda-forge/pymor-full) |
 
 Installing pymor
 ================
@@ -49,7 +50,7 @@ How to use
 <summary>With conda</summary>
 
 ```
-conda install pymor
+conda install pymor pymor-full
 ```
 
 </details>
@@ -58,7 +59,7 @@ conda install pymor
 <summary>With mamba</summary>
 
 ```
-mamba install pymor
+mamba install pymor pymor-full
 ```
 
 </details>
@@ -68,9 +69,9 @@ mamba install pymor
 
 ```
 # for adding to your local project
-pixi add pymor
+pixi add pymor pymor-full
 # for installing globally
-pixi global install pymor
+pixi global install pymor pymor-full
 ```
 
 </details>
@@ -124,6 +125,7 @@ mamba repoquery depends pymor --channel conda-forge
 </details>
 
 
+
 About conda-forge
 =================
 
@@ -138,9 +140,7 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
-[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+[Azure](https://azure.microsoft.com/en-us/services/devops/) and [GitHub](https://github.com/)
 it is possible to build and upload installable packages to the
 [conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
@@ -191,7 +191,7 @@ Feedstock Maintainers
 =====================
 
 * [@HenKlei](https://github.com/HenKlei/)
-* [@lbalicki](https://github.com/lbalicki/)
 * [@pmli](https://github.com/pmli/)
 * [@sdrave](https://github.com/sdrave/)
+* [@ullmannsven](https://github.com/ullmannsven/)
 
